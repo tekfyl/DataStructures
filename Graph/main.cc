@@ -36,6 +36,7 @@ int main(){
         g[v1].pb(v2);
         g[v2].pb(v1);
     }
+    cout << "Adjacency List: " << endl;
     rep(s,n){
         cout << s+1 << " : ";
         for(auto c:g[s]){
