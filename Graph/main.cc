@@ -39,6 +39,22 @@ void dfs(int s){
     }
 }
 
+void bfs(int s){
+    vs[s] = 0;
+    cout << s+1 << " ";
+    q.pb(s);
+    while(!q.empty()){
+        s = q.front(); q.erase(q.begin());
+        for(auto v:g[s]){
+            if(vs[v]){
+                vs[v] = 0;
+                cout << v+1 << " ";
+                q.pb(v);
+            }
+        }
+    }
+}
+
 int main(){
     ios_base::sync_with_stdio(false);
     cin >> n >> m;
@@ -57,6 +73,8 @@ int main(){
     }
     cout << "DFS Traversal : ";
     dfs(0); cout << endl;
+    cout << "BFS Traversal : ";
+    bfs(0); cout << endl;
     //cout<<"\n"<<"Execution time : "<<tick()<<"\n";
     return 0;
 }
