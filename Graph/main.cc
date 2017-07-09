@@ -27,6 +27,17 @@ ll in=0,i=0,j=0,k=0,ans=0;
 ll n=0,m=0,t=0,v1=0,v2=0;
 char c; string s;
 vvl g(N);
+vi vis(N,7), vs(N,7);
+
+void dfs(int s){
+    vis[s] = 0;
+    cout << s+1 << " ";
+    for(auto v:g[s]){
+        if(vis[v]){
+            dfs(v);
+        }
+    }
+}
 
 int main(){
     ios_base::sync_with_stdio(false);
@@ -44,6 +55,8 @@ int main(){
         }
         cout << endl;
     }
+    cout << "DFS Traversal : ";
+    dfs(0); cout << endl;
     //cout<<"\n"<<"Execution time : "<<tick()<<"\n";
     return 0;
 }
